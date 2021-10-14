@@ -21,9 +21,9 @@ function calc() {
   let waterQnt =
     waterPerPerson(duration) * adults + (waterPerPerson(duration) / 2) * kids;
 
-  result.innerHTML = `<p>${meatQnt / 1000}Kg de Carne</p>`;
-  result.innerHTML += `<p>${Math.ceil(beerQnt / 355)} Latas de Cerveja</p>`;
-  result.innerHTML += `<p>${waterQnt2(waterQnt)}`;
+  result.innerHTML = `<p><span>${meatQnt / 1000}</span> Kg de Carne</p>`;
+  result.innerHTML += `<p><span>${Math.ceil(beerQnt / 355)}</span> Latas de Cerveja</p>`;
+  result.innerHTML += `<p><span>${waterQnt2(waterQnt)}</span>`;
   result.innerHTML += `${duration2(adults, kids, duration)}`;
 }
 
@@ -32,11 +32,11 @@ function calc() {
 function waterQnt2(waterQnt) {
   let waterCount = Math.ceil(waterQnt / 1000);
   if (waterCount > 1) {
-    return `<p>${waterCount} litros de Bebidas</p>`;
+    return `<p><span>${waterCount}</span> litros de Bebidas</p>`;
   } else if (waterCount < 1) {
-    return `<p>${waterCount} litros de Bebidas</p>`;
+    return `<p><span>${waterCount}</span> litros de Bebidas</p>`;
   } else {
-    return `<p>${waterCount} litro de Bebida</p>`;
+    return `<p><span>${waterCount}</span> litro de Bebida</p>`;
   }
 }
 
@@ -44,13 +44,13 @@ function waterQnt2(waterQnt) {
 // Putting text on screen
 function duration2(adults, kids, duration) {
   let total = Number(adults) + Number(kids);
-  let totalPlural = total > 1 ? `${total} pessoas` : `${total} pessoa`;
+  let totalPlural = total > 1 ? `<span>${total}</span> pessoas` : `<span>${total}</span> pessoa`;
   if (duration > 1) {
-    return `<p>Para ${duration} horas de Churrasco com ${totalPlural}.</p>`;
+    return `<p>Para <span>${duration}</span> horas de Churrasco com ${totalPlural}.</p>`;
   } else if (duration < 1) {
     return `<p>Para o seu Churrasco com ${totalPlural}.</p>`;
   } else {
-    return `<p>Para ${duration} hora de Churrasco com ${totalPlural}.</p>`;
+    return `<p>Para <span>${duration}</span> hora de Churrasco com ${totalPlural}.</p>`;
   }
 }
 
